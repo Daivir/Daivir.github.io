@@ -1,0 +1,38 @@
+nav {
+  padding: 1rem 0;
+  background-color: $nav-background-color;
+  position: relative;
+  .nav-header {
+    line-height: 40px;
+    position: absolute;
+    left: 40px;
+    top: 0;
+    height: 100%;
+  }
+  .nav-header > i {
+    vertical-align: middle;
+    text-align: center;
+    height:100%;
+  }
+  ul.nav-items {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: stretch;
+    &.left {
+      justify-content: start;
+    }
+    &.right {
+      justify-content: end;
+    }
+    list-style-type: none;
+    li > a {
+      text-decoration: none;
+      padding: $nav-items-padding;
+      color: color("shades", "white");
+      &:hover {
+        background-color: darken($nav-background-color, 10%);
+      }
+    }
+  }
+}

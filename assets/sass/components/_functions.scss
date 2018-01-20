@@ -1,0 +1,30 @@
+// Colors
+@function color($color, $shade: "base") {
+	@if map-has-key($colors, $color) {
+		$curr_color: map-get($colors, $color);
+		@if map-has-key($curr_color, $shade) {
+			@return map-get($curr_color, $shade);
+		}
+	}
+	@warn "Unknown `#{$color}` - `#{$shade}` in $colors.";
+	@return null;
+}
+
+// Lists
+@function current($list, $keyIndex) {
+	@return nth($list, $keyIndex);
+}
+
+@function first($list) {
+	@return current($list, 1);
+}
+
+@function next($list, $currentKey) {
+	$keyIndex: index($list, $currentKey);
+	@return nth($list, $keyIndex + 1);
+}
+
+// Strings
+@function capitalize($string) {
+	@return to-upper-case(str-slice($string, 1, 1)) + str-slice($string, 2);
+}
